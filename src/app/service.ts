@@ -9,11 +9,10 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class Service {
-  private survey: Survey;
+  survey: Survey;
   wsUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.survey = new Survey(undefined, '', '');
     this.wsUrl = ENV.apiUrl + '/survey';
    }
 
