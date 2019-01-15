@@ -1,0 +1,31 @@
+<div class="infoSurvey">
+    <h3>Sondage n° {{ survey.idSurvey }}, a commencé le {{ survey.openDate }} et se termine le {{ survey.endDate }}.</h3>
+</div>
+<div ng-switch="myVar">
+    <div ng-switch-when="survey">
+        <h1>Voudriez-vous adhérer à un service d'assurance automobile Proxibanque?</h1>
+        <img (click)="yes(survey)" class="list-icon" src="./assets/yes.png">
+        <img (click)="no(survey)" class="list-icon" src="./assets/no.png">
+    </div>
+    <div ng-switch-when="yes">
+        <form>
+            <div class="form-group">
+                <label for="nbclient">N° Client : </label>
+                <input class="form-control" id="nbclient" placeholder="Entrer votre numéro client">
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+    <div ng-switch-when="no">
+        <form>
+            <div class="form-group">
+                <label for="comment">Commentaire : </label>
+                <input class="form-control" id="comment" placeholder="Entrer votre commentaire">
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+    <div ng-switch-default>
+        <h1>Retour</h1>
+    </div>
+</div>

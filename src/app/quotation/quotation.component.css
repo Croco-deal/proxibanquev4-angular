@@ -1,0 +1,51 @@
+.back {
+    background-image:url("/assets/quotation.jpg");
+    background-repeat:no-repeat;
+    height: 950px;
+    width: auto;
+    background-size: cover;
+    background-position: top;
+    background-attachment:fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.quotation {
+    border:6px solid white;
+    width: 1000px;
+    height: 300px;
+    position: fixed;
+    margin-top: -200px;
+    margin-left: 40px;
+}
+
+
+.text {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px;
+    width: 150px;
+}
+
+.bouton {
+    margin-left: 830px;
+    margin-top: 50px
+
+}
+
+h1 {
+    color:white;
+    font-size: 60px;
+    font-weight: bold;
+} 
+
+h2 {
+    font-weight: bold;
+}
