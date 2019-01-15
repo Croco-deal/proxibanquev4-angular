@@ -4,28 +4,47 @@ import { Survey } from './survey';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Response } from './response';
+import { Client } from './client';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Service {
   survey: Survey;
-  wsUrl: string;
+  response: Response;
+  wsUrlSurvey: string;
+  wsUrlClient: string;
+  wsUrlResponse: string;
 
   constructor(private httpClient: HttpClient) {
-    this.wsUrl = ENV.apiUrl + '/survey';
-   }
+    this.wsUrlSurvey = ENV.apiUrl + '/survey';
+    this.wsUrlClient = ENV.apiUrl + '/client';
+    this.wsUrlResponse = ENV.apiUrl + '/response';
 
-   check(): Observable<Survey> {
-     return this.httpClient.get<Survey>(this.wsUrl).pipe(tap((survey) => this.survey = survey));
-   }
+  }
 
-   getSurvey(): Survey {
+  checkSurvey(): Observable<Survey> {
+    return this.httpClient.get<Survey>(this.wsUrlSurvey).pipe(tap((survey) => this.survey = survey));
+  }
+
+  checkClient(clientNumber: string): Observable<Client> {
+    return this.httpClient.get<Client>(this.wsUrlClient + `/${clientNumber}`);
+  }
+
+  getSurvey(): Survey {
     return this.survey;
   }
 
-  updateResponse(response){
-    const newResponse = new Response(response.isTrue, );
+  createResponse(response: Response): Observable<Response> {
+    const newResponse = new Response(response.isTrue, response.comment, response.client, response.survey);
+
+// .subscribe(() => {
+// Afficher le message de confirmation à l'utilisateur (paramètre: message positif ou négatif)
+// console.log('Response Commentaire bien créée en BDD');
+// });
+    return this.httpClient.post<Response>(this.wsUrlResponse, newResponse);
   }
 
 }
+

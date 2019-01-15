@@ -1,14 +1,17 @@
+import { Survey } from './survey';
 import { Client } from './client';
 export class Response {
-    private id: number;
-    private isTrue: boolean;
-    private comment: string;
-    private clientNumber: Client;
+    id: number;
+    isTrue: boolean;
+    comment: string;
+    client: Client;
+    survey: Survey;
 
-    constructor (isTrue: boolean, comment: string, clientNumber: Client) {
+    constructor (isTrue: boolean, comment: string, client: Client, survey: Survey) {
         this.isTrue = isTrue;
         this.comment = comment;
-        this.clientNumber = clientNumber;
+        this.client = client;
+        this.survey = survey;
     }
 
 }

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.service.check().subscribe((survey) => {
+      this.service.checkSurvey().subscribe((survey) => {
         this.isActive = survey != null;
       });
   }
