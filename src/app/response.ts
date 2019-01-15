@@ -5,8 +5,7 @@ export class Response {
     private comment: string;
     private clientNumber: Client;
 
-    constructor (id: number, isTrue: boolean, comment: string, clientNumber: Client) {
-        this.id = id;
+    constructor (isTrue: boolean, comment: string, clientNumber: Client) {
         this.isTrue = isTrue;
         this.comment = comment;
         this.clientNumber = clientNumber;

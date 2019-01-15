@@ -24,4 +24,9 @@ export class Service {
    getSurvey(): Survey {
     return this.survey;
   }
+
+  updateResponse(response){
+    const newResponse = new Response(response.isTrue, );
+  }
+
 }

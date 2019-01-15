@@ -28,17 +28,13 @@ export class SurveyComponent implements OnInit {
   surveyResponse(survey: Survey) {
   }
 
-  swapDisplay() {
-    this.isThumb = !this.isThumb;
-  }
 
 
   yes(survey: Survey) {
-    this.isYes = true;
-    this.swapDisplay();
+    this.service.createOpinion();
   }
 
   no(survey: Survey) {
-
+    this.service.check();
   }
 }
