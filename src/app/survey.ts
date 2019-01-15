@@ -1,10 +1,10 @@
 export class Survey {
-     idSurvey: number;
+     id: number;
      openDate: string;
      endDate: string;
 
-    constructor(idSurvey: number, openDate: string, endDate: string) {
-        this.idSurvey = idSurvey;
+    constructor(id: number, openDate: string, endDate: string) {
+        this.id = id;
         this.openDate = openDate;
         this.endDate = endDate;
     }

@@ -1,10 +1,10 @@
 <div>
 <ng-container *ngIf="isActive;else elseTpl">
-
-        <app-quotation></app-quotation>
+                <app-survey></app-survey>
 </ng-container>
   
 </div>
 <ng-template #elseTpl>
- <app-survey></app-survey>
+                <app-quotation></app-quotation>
+
 </ng-template>
