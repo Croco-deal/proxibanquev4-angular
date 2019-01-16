@@ -22,7 +22,7 @@
                             <input type="number" class="form-control" id="clientNumber" [(ngModel)]="client.clientNumber"
                                 required name="clientNumber" placeholder="Entrer votre numéro client (8 chiffres)">
                         </div>
-                        <div *ngIf="isOk; else invalidClientNumber">
+                        <div *ngIf="isOk, else invalidClientNumber">
                             <h5>Merci pour votre participation! Vous serez contacté(e) dans un délai de {{dayNumber}}
                                 jours par un de nos conseillers Proxibanque expert en assurance auto!</h5>
                         </div>
@@ -41,11 +41,11 @@
                         <input class="form-control" [(ngModel)]="response.comment" id="comment" name="comment"
                             placeholder="Entrer votre commentaire">
                     </div>
-                    <div *ngIf="isComment;else notComment">
+                    <div *ngIf="isComment, else notComment">
                         <p> Votre avis est précieux !</p>
                     </div>
                     <ng-template #notComment>
-                        <h3>Votre commentaire a bien été enregistré. Merci pour votre participation!</h3>
+                        <h5>Votre commentaire a bien été enregistré. Merci pour votre participation!</h5>
                     </ng-template>
                     <div class="bouton-valide">
                         <button type="submit" class="btn btn-success">Valider</button>

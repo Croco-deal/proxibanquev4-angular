@@ -25,7 +25,7 @@ export class SurveyComponent implements OnInit {
   survey: Survey;
   client: Client;
   switchOption: string;
-  dayNumber: string;
+  dayNumber: number;
   isOk: boolean;
   isComment: boolean;
   isNew: boolean;
@@ -92,7 +92,7 @@ export class SurveyComponent implements OnInit {
 
 /**
  * Méthode permettant la création et la soummission du commentaire au backend.
- * Cette méthode permet également de réinitialiser les champs du formulaire après validation. 
+ * Cette méthode permet également de réinitialiser les champs du formulaire après validation.
  *  @param formSurvey : instance de la classe NgForm d'Angular, permettant la liaison à la directive NgForm du template html.
 */
   validateNeg(formSurvey: NgForm) {
@@ -100,6 +100,7 @@ export class SurveyComponent implements OnInit {
       console.log('Avis négatif créé en BDD');
     });
     formSurvey.resetForm(new Response(null, null, null, null));
+    this.isComment = false;
   }
 
 /**
@@ -111,7 +112,7 @@ export class SurveyComponent implements OnInit {
     const nowDate = Date.now();
     const endDate = new Date(this.survey.endDate[0], this.survey.endDate[1] - 1, this.survey.endDate[2]);
     const dayNumberMs = endDate.getTime() - nowDate;
-    const dayNumber = Math.ceil(dayNumberMs / (1000 * 60 * 60 * 24));
+    this.dayNumber = Math.ceil(dayNumberMs / (1000 * 60 * 60 * 24));
   }
 
 /**
