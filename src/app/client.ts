@@ -7,15 +7,15 @@ export class Client {
     clientNumber: string;
     firstname: string;
     lastname: string;
-    tel: number;
-    email: string;
+    tel: string;
+    mail: string;
 
-    constructor(clientNumber: string, firstname: string, lastname: string, tel?: number, email?: string) {
+    constructor(clientNumber: string, firstname: string, lastname: string, tel?: string, mail?: string) {
         this.clientNumber = clientNumber;
         this.firstname = firstname;
         this.lastname = lastname;
         this.tel = tel;
-        this.email = email;
+        this.mail = mail;
     }
 
 }

@@ -76,7 +76,7 @@ export class Service {
 
   createClient(client: Client): Observable<Client> {
     const newClient = new Client(
-      client.clientNumber, client.firstname, client.lastname, client.tel, client.email);
+      client.clientNumber, client.firstname, client.lastname, client.tel, client.mail);
     return this.httpClient.post<Client>(this.wsUrlClient, newClient);
   }
 }
