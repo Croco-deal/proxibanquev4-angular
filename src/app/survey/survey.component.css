@@ -1,0 +1,73 @@
+h3 {
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+    font-style: oblique
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px
+}
+
+.bouton {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    margin-left: 33%;
+    margin-right: 33%
+}
+
+.form-client {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    justify-content: space-between;
+}
+
+p {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+    font-style: oblique;
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+
+.bouton-valide {
+    margin-left: 74%;
+}
+
+.survey{
+    background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url("/assets/quotation.jpg");
+    background-size: cover;
+    background-position: 1000% 0%;
+    background-repeat:no-repeat;
+    height: 100vh;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.rectangle {
+    border:6px solid white;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 1200px;
+    height: 430px;
+    position: fixed;
+}
