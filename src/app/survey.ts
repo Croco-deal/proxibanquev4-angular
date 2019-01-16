@@ -1,3 +1,7 @@
+/**
+ * Classe Response permettant de stocker les informations relatives au sondage en cours.
+ * @author: JLSS.
+*/
 export class Survey {
      id: number;
      openDate: Date;

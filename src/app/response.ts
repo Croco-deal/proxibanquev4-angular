@@ -1,5 +1,10 @@
 import { Survey } from './survey';
 import { Client } from './client';
+
+/**
+ * Classe Response permettant de stocker les informations des utilisateurs, relatives au sondage.
+ * @author: JLSS.
+*/
 export class Response {
     id: number;
     isTrue: boolean;
