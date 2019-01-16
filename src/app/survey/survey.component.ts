@@ -128,12 +128,11 @@ export class SurveyComponent implements OnInit {
             this.response.client = client;
           this.service.createResponse(this.response).subscribe(() => {
             console.log('Avis positif créé en BDD');
-            this.isOk = true;
+
           });
           this.getDays();
-          } else {
-            this.isOk = false;
           }
+          this.isOk = true;
         });
     });
     formClient.resetForm(new Client(null, null, null, null, null));

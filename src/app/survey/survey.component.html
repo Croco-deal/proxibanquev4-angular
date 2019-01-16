@@ -17,26 +17,48 @@
             <div *ngSwitchCase="'yes'">
                 <div>
                     <form (ngSubmit)="validatePos(formSurvey)" #formSurvey="ngForm">
-                        <div class="form-group form-client">
+                        <div class="form-group form1-client">
                             <label for="nbclient">N°Client:</label>
                             <input type="number" class="form-control" id="clientNumber" [(ngModel)]="client.clientNumber"
                                 required name="clientNumber" placeholder="Entrer votre numéro client (8 chiffres)">
                         </div>
+                        <div class="bouton-valide1"><button (click)="getDays()" type="submit" class="btn btn-success">Valider</button></div>
+                    </form>
+
+                    <form (ngSubmit)="validateNewClient(formClient)" #formClient="ngForm">
+                        <div class="form-group form-client">
+                            <label for="nbclient">Nom:</label>
+                            <input class="form-control" id="lastname" [(ngModel)]="client.lastname" required name="lastname"
+                                placeholder="Entrer votre Nom">
+
+                            <label for="nbclient">Prénom:</label>
+                            <input class="form-control" id="firstname" [(ngModel)]="client.firstname" required name="firstnameh"
+                                placeholder="Entrer votre Prénom">
+                        </div>
+                        <div class="form-group form-client">
+                            <label for="nbclient">Mail:</label>
+                            <input class="form-control" id="mail" [(ngModel)]="client.mail" name="mail" placeholder="Entrer votre adresse mail">
+
+                            <label for="nbclient">Tel:</label>
+                            <input class="form-control" id="tel" [(ngModel)]="client.tel" name="tel" placeholder="Entrer votre numéro de téléphone">
+                        </div>
+                        <div class="bouton-valide2"><button (click)="getDays()" type="submit" class="btn btn-success">Créer
+                                un compte</button></div>
                         <div *ngIf="isOk, else invalidClientNumber">
-                            <h5>Merci pour votre participation! Vous serez contacté(e) dans un délai de {{dayNumber}}
+                            <h5 id="merci">Merci pour votre participation! Vous serez contacté(e) dans un délai de
+                                {{dayNumber}}
                                 jours par un de nos conseillers Proxibanque expert en assurance auto!</h5>
                         </div>
                         <ng-template #invalidClientNumber>
                             <p>Numéro invalide</p>
                         </ng-template>
-                        <div class="bouton-valide"><button (click)="getDays()" type="submit" class="btn btn-success">Valider</button></div>
                     </form>
                 </div>
             </div>
 
             <div *ngSwitchCase="'no'">
                 <form (ngSubmit)="validateNeg(formComment)" #formComment="ngForm">
-                    <div class="form-group form-client">
+                    <div class="form-group comment-client">
                         <label for="comment">Commentaire:</label>
                         <input class="form-control" [(ngModel)]="response.comment" id="comment" name="comment"
                             placeholder="Entrer votre commentaire">
