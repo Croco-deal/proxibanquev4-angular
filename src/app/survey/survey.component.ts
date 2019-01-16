@@ -15,14 +15,16 @@ export class SurveyComponent implements OnInit {
   survey: Survey;
   client: Client;
   switchOption: string;
-  dayNumber: number;
+  dayNumber: string;
   isOk: Boolean;
+  isComment: boolean;
 
   constructor(private service: Service) {
     this.response = new Response(null, null, null, null);
     this.survey = new Survey(null, null, null);
     this.client = new Client(undefined);
-    this.switchOption = '';
+    this.switchOption = 'survey';
+    this.isComment = true;
   }
 
   ngOnInit() {
@@ -30,9 +32,9 @@ export class SurveyComponent implements OnInit {
     this.response.survey = this.survey;
   }
 
-  displaySurvey() {
-    this.switchOption = 'survey';
-  }
+  // displaySurvey() {
+    // this.switchOption = 'survey';
+  // }
 
   no(survey: Survey) {
     this.response.isTrue = false;
@@ -46,17 +48,20 @@ export class SurveyComponent implements OnInit {
    // this.service.check();
   }
 
-  clientValidation() {
-    this.isOk = true;
-  }
+// && this.response.client.clientNumber !== this.client.clientNumber
 
   validatePos(formSurvey: NgForm) {
     this.service.checkClient(this.client.clientNumber).subscribe((client) => {
-      this.response.client = client;
+      if (client) {
+        this.response.client = client;
       this.service.createResponse(this.response).subscribe(() => {
         console.log('Avis positif créé en BDD');
+        this.isOk = true;
       });
       this.getDays();
+      } else {
+        this.isOk = false;
+      }
     });
   }
   validateNeg(formSurvey: NgForm) {
@@ -68,10 +73,11 @@ export class SurveyComponent implements OnInit {
 
   getDays() {
     console.log(Date.now());
-    console.log(this.survey.endDate.getTime());
-    const left = this.survey.endDate.getTime() - Date.now();
-    const dayNumber = Math.ceil(left / (1000 * 60 * 60 * 24));
-    return dayNumber;
+    console.log(this.survey.endDate);
+    const nowDate = Date.now();
+    const endDate = new Date(this.survey.endDate[0], this.survey.endDate[1] - 1, this.survey.endDate[2]);
+    const dayNumberMs = endDate.getTime() - nowDate;
+    const dayNumber = Math.ceil(dayNumberMs / (1000 * 60 * 60 * 24));
   }
 
 }
